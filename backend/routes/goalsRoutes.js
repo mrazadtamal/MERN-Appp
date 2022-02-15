@@ -1,9 +1,9 @@
 const express = require("express");
 const router = express.Router();
+const { getGoal } = require("../controllers/goalController.js");
 
-router.get("/", (req, res) => {
-  res.send("MERN");
-});
+router.get("/", getGoal);
+
 router.post("/", (req, res) => {
   res.status(200).json({ name: "azad" });
 });
