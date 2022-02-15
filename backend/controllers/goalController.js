@@ -2,14 +2,19 @@
 // @route   GET /api/goals
 // @access  Private
 const getGoal = (req, res) => {
-  res.status(200).json({ name: `set goal` });
+  res.status(200).json({ name: `get goal` });
 };
 
 // @desc    set goals
 // @route   post /api/goals
 // @access  Private
 const setGoal = (req, res) => {
-  res.status(200).json({ name: `get goal` });
+  if (!req.body.text) {
+    res.status(400);
+
+    throw new Error("please enter text");
+  }
+  res.status(200).json({ name: `set goal` });
 };
 
 // @desc    Update goal
